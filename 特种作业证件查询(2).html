@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://p7.itc.cn/q_70/images03/20200807/d0b1a89214d74e53b77ae9c702eb166b.jpeg">
+    <title>特种作业证件查询</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 垂直对齐 */
+            text-align: center;
+        }
+
+        .container {
+            position: absolute;
+            top: 15%; /* 使整体内容位于页面高度的15%处 */
+            left: 50%; /* 水平居中 */
+            transform: translateX(-50%); /* 水平居中修正 */
+            z-index: 1; /* 确保按钮在背景上方 */
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%; /* 控制图片最大宽度 */
+            width: 150px; /* 可调节图片宽度 */
+            height: auto; /* 保持纵横比 */
+        }
+
+        .text {
+            font-size: 24px;
+            margin: 5px 0;
+            white-space: nowrap; /* 防止文本换行，保持在同一行 */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(76, 175, 80, 0.7); /* 半透明绿色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            white-space: nowrap; /*防止按钮文字换行*/
+        }
+
+        .btn:hover {
+            background-color: rgba(69, 160, 73, 0.7);
+        }
+
+        .sub-buttons {
+            display: none;
+            margin-top: 20px;
+        }                               
+
+        .sub-buttons button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(0, 140, 186, 0.7); /* 半透明蓝色 */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sub-buttons button:hover {
+            background-color: rgba(0, 123, 138, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 图片容器 -->
+        <div class="image-container">
+            <img src="https://p7.itc.cn/q_70/images03/20200807/d0b1a89214d74e53b77ae9c702eb166b.jpeg" alt="图片描述">
+        </div>
+
+        <!-- 文字部分 -->
+        <div class="text">
+            <div>板材热连轧厂</div>
+            <div>特种作业证件查询</div>
+        </div>
+
+        <!-- 按钮部分 -->
+        <div class="button-container">
+            <button id="craneButton" class="btn">起重工、吊车司机</button>
+            <button id="welderButton" class="btn">电工、焊工、高处作业</button>
+        </div>
+
+        <div id="craneSubButtons" class="sub-buttons">
+            <button onclick="window.open('https://cnse.samr.gov.cn/info-pub/pub', '_blank'); hideSubButtons()">源1</button>
+            <button onclick="window.open('https://cnse.e-cqs.cn/info-pub/pubh5', '_blank'); hideSubButtons()">源2</button>
+            <button onclick="window.open('https://cnse.samr.gov.cn/info-pub/pub', '_blank'); hideSubButtons()">源3</button>
+        </div>
+        
+        <div id="welderSubButtons" class="sub-buttons">
+          <button onclick="window.open('https://cx.mem.gov.cn/wxcx/pages/scanCode/index', '_blank'); hideSubButtons()">扫码</button>
+          <button onclick="window.open('https://cx.mem.gov.cn/special?index=0', '_blank'); hideSubButtons()">输入</button>
+    </div>
+
+    <script>
+        // 获取按钮
+        const craneButton = document.getElementById('craneButton');
+        const welderButton = document.getElementById('welderButton');
+        const craneSubButtons = document.getElementById('craneSubButtons');
+        const welderSubButtons = document.getElementById('welderSubButtons');
+
+        // 点击"起重工"按钮时显示源按钮
+        craneButton.addEventListener('click', function() {
+            craneSubButtons.style.display = craneSubButtons.style.display === 'none' || craneSubButtons.style.display === '' ? 'block' : 'none';
+        });
+
+        // 点击"电焊工"按钮时显示源按钮
+        welderButton.addEventListener('click', function() {
+           welderSubButtons.style.display = welderSubButtons.style.display === 'none' || welderSubButtons.style.display === '' ? 'block' : 'none';
+        });
+
+        // 隐藏源按钮
+        function hideSubButtons() {
+            craneSubButtons.style.display = 'none';
+            welderSubButtons.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
